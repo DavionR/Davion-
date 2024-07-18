@@ -16,8 +16,7 @@ html {
      margin: 70px auto 0;
      overflow: hidden;
      box-shadow: 4px 4px rgba(0,0,0,.2);
-
-    }
+}
     .calculator span {
         -moz-user-select: none;
         user-select: none;
@@ -29,7 +28,7 @@ html {
         background-color: white;
     }
 
-    .top .unite {
+    .top .unit {
         text-transform: uppercase;
         position: absolute;
         top: 10px;
@@ -66,7 +65,7 @@ html {
      height: 40;
     }
 
-    .bottom{
+    .bottom {
         background-color: #2d2d2d;
         height: 300px;
         color: white;
@@ -83,11 +82,59 @@ html {
     .key {
         width: 80%;
     }
-
-    .key .collumn .operators {
+ 
+    .key .column{
+    display: flex;
+    flex-grow: 1;
+    }
+    
+    .key .column .operators {
         flex-direction: column;
         justify-self: center;
         align-items: center;
     }
 
-    
+   .key .column span, operators span {
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+    width: 100;
+    line-height: 1;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: back-ground-color 0.5s;
+    }
+
+.key .column span {
+    font-size: 25px;
+}
+
+.key .column span:hover, .operators span:hover {
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+.operators {
+    width: 20%;
+    font-size: 18px;
+    background-color: #434343;
+}
+
+.delete {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.credit {
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    margin: 0 auto;
+}
+
+.credit a, .error {
+    color: #c2185b;
+}
