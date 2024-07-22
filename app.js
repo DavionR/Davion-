@@ -11,4 +11,36 @@ let decimalAdded = false
 
 const operation = ['+', '-', 'x', '/']
 
-function handleKeypress(e){}
+function handleKeypress(e){
+    const key = e.target.dataset.key
+    const lastChar = operation[operation.length -1]
+
+   if (key === '='){
+       return
+   }
+   
+   if (key === '.' && decimalAdded){
+       return
+    }
+
+   if(operator.indexOf(key) !== -1){
+       decimalAdded = false
+   }
+
+   if (operation.length === 0 && key === '-') {
+       operation += key
+       input.innerHTML = operation
+       return
+   }
+   
+   if (operation.length === 0 && operator.in(key) !== -1) {
+    input.innerHTML = operation
+    return
+   }
+
+
+if (operation.indexOf(lastChar) !== -1 && operator.indexOf(key) !== -1) {
+    input.innerHTML = operation
+}
+
+}
