@@ -9,7 +9,7 @@ let operation = ""
 let answer
 let decimalAdded = false
 
-const operation = ['+', '-', 'x', '/']
+const operators = ['+', '-', 'x', '/']
 
 function handleKeypress(e){
     const key = e.target.dataset.key
@@ -23,7 +23,7 @@ function handleKeypress(e){
        return
     }
 
-   if(operator.indexOf(key) !== -1){
+   if(operators.indexOf(key) !== -1){
        decimalAdded = false
    }
 
@@ -33,14 +33,25 @@ function handleKeypress(e){
        return
    }
    
-   if (operation.length === 0 && operator.in(key) !== -1) {
+   if (operation.length === 0 && operators.indexOf(key) !== -1) {
     input.innerHTML = operation
     return
    }
 
 
-if (operation.indexOf(lastChar) !== -1 && operator.indexOf(key) !== -1) {
+if (operation.indexOf(lastChar) !== -1 && operators.indexOf(key) !== -1) {
     input.innerHTML = operation
 }
 
+if (key) {
+    if (key === '.') decimalAdded = true
+    operation += key
+    input.innerHTML = operation
+    return
 }
+
+}
+
+keys.forEach(key => { 
+    key.addEventlistener('click', handleKeypress)
+})
